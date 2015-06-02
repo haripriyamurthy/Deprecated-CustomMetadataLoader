@@ -1,0 +1,31 @@
+<apex:page controller="CustomMetadataUploadController" docType="html-5.0" sidebar="false">
+  <body class="homeTab">
+      <apex:form >
+            <apex:pagemessages escape="false"/>
+            <apex:pageBlock >
+                <apex:pageBlockSection columns="2"> 
+                      <apex:inputFile value="{!csvFileBody}"/>
+                      <apex:selectList value="{!selectedType}" size="1">
+                          <apex:selectOptions value="{!cmdTypes}"/>
+                      </apex:selectList>
+                </apex:pageBlockSection>
+            </apex:pageBlock>
+            
+            <div align="center" draggable="false" >
+                <apex:commandButton value="Create custom metadata" action="{!createCustomMetadata}"/>
+            </div>
+          	<br/>
+          	<br/>
+          	<apex:pageBlock rendered="{!showRecordsTable}">
+                <apex:facet name="header">
+                     <apex:outputText style="font-weight:bold;float:center" value="Custom Metadata records for the type {!selectedType}" />
+                </apex:facet>
+            	<apex:pageBlockTable value="{!records}" var="record">
+                    <apex:repeat value="{!fieldNamesForDisplay}" var="field">
+                    	<apex:column value="{!record[field]}"/>
+                	</apex:repeat>
+          		</apex:pageBlockTable>
+          	</apex:pageBlock>
+       </apex:form>
+   </body>
+</apex:page>
