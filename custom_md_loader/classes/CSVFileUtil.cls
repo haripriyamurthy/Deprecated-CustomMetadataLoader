@@ -18,6 +18,8 @@ public class CSVFileUtil {
         // now replace all remaining double quotes - we do this so that we can reconstruct
         // fields with commas inside assuming they begin and end with a double quote
         contents = contents.replaceAll('""','DBLQT');
+	//windows case - replace all carriage + new line character to just new line character
+	contents = contents.replaceAll('\r\n','\n');
         //now replace all return char to new line character
         contents = contents.replaceAll('\r','\n');
         // we are not attempting to handle fields with a newline inside of them
