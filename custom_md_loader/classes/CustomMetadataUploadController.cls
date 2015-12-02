@@ -131,12 +131,28 @@ public class CustomMetadataUploadController {
         
         System.debug(selectedType);
         
-        List<SObject> fieldDefinitions =[select QualifiedApiName from FieldDefinition where EntityDefinition.QualifiedApiName = :selectedType];
+        /*List<SObject> fieldDefinitions =[select QualifiedApiName from FieldDefinition where EntityDefinition.QualifiedApiName = :selectedType];
         
         Set<String> fieldApiNames = new Set<String>(standardFieldsInHeader);
         nonSortedApiNames = new List<String>(standardFieldsInHeader);
         for(SObject fieldDefinition : fieldDefinitions){
             String fieldQualifiedApiName = (String)fieldDefinition.get(AppConstants.QUALIFIED_API_NAME_ATTRIBUTE);
+            if(fieldQualifiedApiName.endsWith('__c')){
+                fieldApiNames.add(fieldQualifiedApiName);
+                nonSortedApiNames.add(fieldQualifiedApiName);
+            }
+        }*/
+        
+        Set<String> fieldApiNames = new Set<String>(standardFieldsInHeader);
+        nonSortedApiNames = new List<String>(standardFieldsInHeader);
+        
+        DescribeSObjectResult objDef = Schema.getGlobalDescribe().get(selectedType).getDescribe();
+        Map<String, SObjectField> fields = objDef.fields.getMap();
+        
+        for(String fieldName : fields.keySet()) {
+            DescribeFieldResult fieldDesc = fields.get(fieldName).getDescribe();
+            String fieldQualifiedApiName = fieldDesc.getName();
+            
             if(fieldQualifiedApiName.endsWith('__c')){
                 fieldApiNames.add(fieldQualifiedApiName);
                 nonSortedApiNames.add(fieldQualifiedApiName);

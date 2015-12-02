@@ -18,7 +18,7 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
-    <label>Configuration</label>
-    <pluralLabel>Configurations</pluralLabel>
+    <label>CountryMapping</label>
+    <pluralLabel>CountryMappings</pluralLabel>
     <visibility>Public</visibility>
 </CustomObject>
