@@ -4,6 +4,10 @@ Custom metadata loader is a tool for creating custom metadata records from a csv
 
 Custom metadata loader has a sample custom metadata type CountryMapping__mdt that allows users to map country codes to country names. 
 
+#How to deploy custom metadata loader
+1. Download the folder custom_md_loader and zip all the files inside this folder. Package.xml should be at the top level of the zipped file. 
+2. Log in to your developer organization via workbench and deploy this zip file. (migration -> deploy)
+
 # How to use custom metadata loader
 
 1. Once you have deployed custom metadata loader in your org, assign the permission set 'Custom Metadata Loader' to the users who need to use the tool. These users also need the 'Customize Application' to create Custom Metadata records. Admin should have this permission by default. 
