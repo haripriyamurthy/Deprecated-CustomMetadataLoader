@@ -1,5 +1,10 @@
 # Custom Metadata Loader
 
+<a href="https://githubsfdeploy.herokuapp.com">
+	<img alt="Deploy to Salesforce" 
+		 src="https://raw.githubusercontent.com/afawcett/githubsfdeploy/master/deploy.png">
+</a>
+
 Custom metadata loader is a tool for creating custom metadata records from a csv file. Create custom metadata types in your Salesforce org using Metadata API and then use custom metadata loader to bulk load the records. Behind the scenes, custom metadata loader uses Metadata API to bulk load up to 200 records with a single call. 
 
 Custom metadata loader has a sample custom metadata type CountryMapping__mdt that allows users to map country codes to country names. 
