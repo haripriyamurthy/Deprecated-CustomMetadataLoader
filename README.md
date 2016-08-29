@@ -1,3 +1,6 @@
+This tool is no longer supported here. Please use the tool in forcedotcom repository. 
+https://github.com/forcedotcom/CustomMetadataLoader
+
 # Custom Metadata Loader
 
 Custom metadata loader is a tool for creating custom metadata records from a csv file. Create custom metadata types in your Salesforce org using Metadata API and then use custom metadata loader to bulk load the records. Behind the scenes, custom metadata loader uses Metadata API to bulk load up to 200 records with a single call. 
